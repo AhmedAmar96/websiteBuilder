@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="../../assets/image/site-logo.svg" alt=""> <span> OneShot (beta version)</span> </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+
+      <ul class="navbar-nav ms-auto me-4 text-black fw-bold">
+        <li class="nav-item">
+          <a class="nav-link " routerLink="home" routerLinkActive="active">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="docs" routerLinkActive="active">Docs</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contact" routerLinkActive="active">Contact</a>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="!isLogin" routerLinkActive="active">
+          <a class="nav-link dropdown-toggle nav-link btn btn-outline-info text-white" data-bs-toggle="dropdown"
+            role="button" aria-haspopup="true" aria-expanded="false">Build Now</a>
+          <div class="dropdown-menu pstion">
+            <a class="dropdown-item" routerLink="/E-commers">E-commers</a>
+            <a class="dropdown-item" routerLink="/news">news</a>
+            <a class="dropdown-item" routerLink="/sport">sport</a>
+            <a class="dropdown-item" routerLink="/Business">Business</a>
+            
+          </div>
+        </li>
+
+        <li class="nav-item mx-2 dropdown parent" *ngIf="isLogin">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false"><i class="fas fa-user-circle fs-3"></i></a>
+          <div class="dropdown-menu pstion text-center w-100">
+            <p class="fw-light">welcom </p>
+
+            <p>
+              {{user._value.first_name}} {{user._value.last_name}}
+            </p>
+            <button type="button" class="btn btn-outline-info dropdown-item mb-3" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+              Build Now </button>
+
+
+            <a class="dropdown-item nav-link text-info btn w-50 mx-auto" (click)="logOut()">Sign out</a>
+          </div>
+        </li>
+
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
+<!-- Modal -->
+<div class="modal fade  pt-10 modaledite " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Choose your website</h5>
+        <button type="button " class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+        <ul>
+          <li>
+            <h4 routerLink="/E-commers" (click)="sendulr('/E-commers')" data-bs-dismiss="modal">E-commers</h4>
+          </li>
+          <li>
+            <h4 routerLink="/news" (click)="sendulr('/news')" data-bs-dismiss="modal">news</h4>
+          </li>
+          <li>
+            <h4 routerLink="/sport" (click)="sendulr('/sport')" data-bs-dismiss="modal">sports</h4>
+          </li>
+          <li>
+            <h4 routerLink="/Business" (click)="sendulr('/Business')" data-bs-dismiss="modal"> Business</h4>
+          </li>
+          <li>
+            <h4 routerLink="/Business" data-bs-dismiss="modal">Other</h4>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

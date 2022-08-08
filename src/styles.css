@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Mono&display=swap"); */
+
+
+
+.pt-10 {
+  padding-top: 7%;
+}
+
+
+@media screen and (max-width: 500px) and (min-width: 0px) {
+  .pt-10 {
+    padding-top: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) and (min-width: 500px) {
+  .pt-10 {
+    padding-top: 25%;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px) {
+  .pt-10 {
+    padding-top: 19%;
+  }
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .pt-10 {
+    padding-top: 16%;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .pt-10 {
+    padding-top: 7%;
+  }
+}
+
+/* html, body { height: 100%; } */
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

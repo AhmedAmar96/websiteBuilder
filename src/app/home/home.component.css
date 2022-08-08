@@ -1,0 +1,50 @@
+.img-carousel
+{
+  width: 50% !important;
+
+}
+
+.about{
+  background-color: #F5F6FE;
+}
+.about-icon
+{
+  color: #F5F6FE;
+    font-size:2rem;
+}
+.work-item{
+  background-color: #F5F6FE;
+  padding: 10px;
+}
+.source-icon{
+  width: 10% !important;
+}
+.source-profile{
+  max-width: 50%;
+  border-radius: 50%;
+}
+.feedback-icone
+{
+  color:#4DABF7 ;
+}
+.x{
+  background-color: #4550E6;
+}
+.modaledite
+{
+  top: 10% !important;
+  z-index: 44444444 !important;
+}
+
+.modal-open , .modal
+{
+  overflow: visible !important;
+}
+.item{
+transition : all 2s ;
+}
+.item:hover{
+  transform:scale(1.1);
+  color: #4550E6;
+
+}

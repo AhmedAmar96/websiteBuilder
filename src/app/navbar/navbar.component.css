@@ -1,0 +1,19 @@
+
+.navbar{
+  z-index: 9999999999999 !important;
+}
+.modal{
+  z-index: 9999999999999999999 !important;
+
+}
+
+ 
+.parent{
+  position: relative;
+}
+.pstion{
+  left: -100px;
+}
+.modal-body ul li{
+  cursor: pointer;
+}

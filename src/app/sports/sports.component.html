@@ -1,0 +1,368 @@
+
+
+<div class="  pt-10 w-75 m-auto">
+  <!-- <button class="btn btn-outline-info" >next</button> -->
+
+
+  <mat-stepper class="m-3 ">
+    <mat-step label="Step 1" state="phone">
+      <p>First step drag template   and press Next </p>
+      <div>
+        <button mat-button matStepperNext (click)="next()">Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Step 2" state="chat"  >
+      <p>you Can edit for everything just double click and put your value </p>
+      <div>
+        <button mat-button matStepperPrevious (click)="back()" >Back</button>
+        <button mat-button matStepperNext (click)="finsh()" >Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Done">
+      <p>You're welcome.</p>
+    </mat-step>
+
+    <!-- Icon overrides. -->
+    <ng-template matStepperIcon="phone">
+      <mat-icon>call_end</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="chat">
+      <mat-icon>forum</mat-icon>
+    </ng-template>
+  </mat-stepper>
+</div>
+
+
+<section class="pt-10 container-fluid  " id="mainside2" cdkDropListGroup>
+
+    <div class="row">
+
+        <div id='sidebar' class="col-md-3  bg-light overflow-hidden">
+            <div cdkDropList [cdkDropListData]="items" class="example-list bg-secondary shadow"
+                (cdkDropListDropped)="drop($event)">
+                <h2 class="text-center fw-bold text-light bg-dark py-3">Drag your templet</h2>
+                <div class="my-5" *ngFor="let item of items" cdkDrag [innerHTML]=item>
+                </div>
+            </div>
+        </div>
+        <div id='editbar' class="col-md-3  position-fixed  bg-light overflow-hidden">
+
+          <div class=" p-2">
+            <input type="text" id="date" placeholder="new date" class=" mb-3  form-control">
+            <input type="text" id="color" placeholder="color" class="  mb-3 form-control">
+            <input type="text" id="back" placeholder="back ground" class="  mb-3  form-control">
+
+          </div>
+
+        </div>
+        <div class="col-md-9" id="mainside">
+            <div cdkDropList id="ouf" class="example-list h-100" [cdkDropListData]="basket"
+                (cdkDropListDropped)="drop($event)">
+                <div class="" cdkDrag>
+
+
+
+                    <section *ngIf="isTemp1">
+                        <!-- header -->
+                        <header>
+                          <!-- header inner -->
+                          <div class="header">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                                  <div class="full">
+                                    <div class="center-desk">
+                                      <div class="logo">
+                                        <a href="index.html"><img src=" ./assets/evolve/images/logo.png" alt="#" /></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                                  <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                      data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                                      aria-label="Toggle navigation">
+                                      <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarsExample04">
+                                      <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item">
+                                          <a class="nav-link"  (dblclick)="change($event)" >Contact Us</a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link"(dblclick)="change($event)"  >Login </a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link"(dblclick)="change($event)"  >Register</a>
+                                        </li>
+                                      </ul>
+                                      <div class="sign_btn"> <a (dblclick)="change($event)"  ><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                                    </div>
+                                  </nav>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </header>
+                        <!-- end header inner -->
+                        <!-- end header -->
+                        <!-- banner -->
+                        <section class="banner_main">
+                          <div class="container-fluid">
+                            <div class="row d_flex">
+                              <div class="col-md-6">
+                                <div class="text-bg">
+                                  <div class="padding_lert">
+                                    <h1 (dblclick)="change($event)" >GYM AND FITNESS</h1>
+                                    <span (dblclick)="change($event)" >Landing Page 2019</span>
+                                    <p (dblclick)="change($event)" >It is a long established fact that a reader will be distracted by the readable content of a
+                                      page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                                      normal distribution of letters, as opposed to using 'Content here, content here', making it
+                                    </p>
+                                    <a class="read_more" (dblclick)="change($event)" >Read More</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="text-img">
+                                  <figure><img src=" ./assets/evolve/images/toy_img.png" alt="#" /></figure>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <!-- end banner -->
+                        <!-- features -->
+                        <div class="Features">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="titlepage">
+                                  <h2 (dblclick)="change($event)" >Our Features Classes</h2>
+                                  <span (dblclick)="change($event)" >CHECKOUT OUR FITNESS CLASSES</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="Our_box">
+                                  <i><img src="./assets/evolve/icon/icon1.png" alt="#" /></i>
+                                  <h4 (dblclick)="change($event)" >HEAVY WEIGHT <br>CLASSES</h4>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="Our_box">
+                                  <i><img src="./assets/evolve/icon/icon2.png" alt="#" /></i>
+                                  <h4 (dblclick)="change($event)" >BODY BUILDING <br>CLASSES</h4>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="Our_box">
+                                  <i><img src="./assets/evolve/icon/icon3.png" alt="#" /></i>
+                                  <h4 (dblclick)="change($event)" >WEIGHT LOSS <br>CLASSES</h4>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <a class="read_more" (dblclick)="change($event)"  (dblclick)="change($event)"  (dblclick)="change($event)" >Read More</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end Features -->
+                        <!-- discount -->
+                        <div class="discount">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="titlepage">
+                                  <h2 (dblclick)="change($event)"  (dblclick)="change($event)" >FITNESS CLASSES THIS SUMMER. PAY NOW AND GET 25% DISCOUNT</h2>
+                                  <span (dblclick)="change($event)"  (dblclick)="change($event)" >Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+                                    of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+                                    Latin professor a</span>
+                                  <a class="read_more" (dblclick)="change($event)"  (dblclick)="change($event)" >Read More</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end discount -->
+                        <!-- request -->
+                        <div class="request">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="titlepage">
+                                  <h2 (dblclick)="change($event)" >Rqueste a call back</h2>
+                                  <span (dblclick)="change($event)" >There are many variations of passages of Lorem Ipsum available, but the majority have
+                                    suffered a</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <form id="request" class="main_form">
+                                  <div class="row">
+                                    <div class="col-md-12 ">
+                                      <input class="contactus" placeholder="Name" type="type" name="Name">
+                                    </div>
+                                    <div class="col-md-12">
+                                      <input class="contactus" placeholder=" Phone" type="type" name="Phone">
+                                    </div>
+                                    <div class="col-md-12">
+                                      <input class="contactus" placeholder=" Email" type="type" name="Email">
+                                    </div>
+                                    <div class="col-md-12">
+                                      <textarea class="textarea" placeholder="Message" type="type"
+                                        Message="Name" (dblclick)="change($event)" >Message </textarea>
+                                    </div>
+                                    <div class="col-sm-12">
+                                      <button class="send_btn" (dblclick)="change($event)" >Send</button>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                              <div class="col-md-8">
+                                <div class="back_img">
+                                  <figure><img src="./../../assets/evolve/images/img.jpg" alt="#" /></figure>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end request -->
+                        <!-- people -->
+                        <div class="people">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="titlepage">
+                                  <h2 (dblclick)="change($event)" > What People Says</h2>
+                                  <span (dblclick)="change($event)" >looking at its layout. The point of using Lorem Ipsumreadable content of a page when looking
+                                    at its layout.</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div id="myCarousel" class="carousel slide people_Carousel " data-ride="carousel">
+                                  <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                  </ol>
+                                  <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                      <div class="container">
+                                        <div class="carousel-caption ">
+                                          <div class="row">
+                                            <div class="col-md-8 offset-md-2">
+                                              <div class="test_box">
+                                                <h4 (dblclick)="change($event)" >Duis aute</h4>
+                                                <p (dblclick)="change($event)" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                                  incididunt ut labore et dolore magna aliqua. x ea commodo consequat. Duis aute
+                                                  irure dolor in reprehenderit in voluptate</p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                      <div class="container">
+                                        <div class="carousel-caption">
+                                          <div class="row">
+                                            <div class="col-md-8 offset-md-2">
+                                              <div class="test_box">
+                                                <h4 (dblclick)="change($event)"  >Duis aute</h4>
+                                                <p (dblclick)="change($event)"  >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                                  incididunt ut labore et dolore magna aliqua. x ea commodo consequat. Duis aute
+                                                  irure dolor in reprehenderit in voluptate</p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                      <div class="container">
+                                        <div class="carousel-caption">
+                                          <div class="row">
+                                            <div class="col-md-8 offset-md-2">
+                                              <div class="test_box">
+                                                <h4 (dblclick)="change($event)" >Duis aute</h4>
+                                                <p (dblclick)="change($event)" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                                  incididunt ut labore et dolore magna aliqua. x ea commodo consequat. Duis aute
+                                                  irure dolor in reprehenderit in voluptate</p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only " (dblclick)="change($event)"  (dblclick)="change($event)" >Previous</span>
+                                  </a>
+                                  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only" (dblclick)="change($event)" >Next</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end people -->
+                        <!--  footer -->
+                        <footer>
+                          <div class="footer">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-8 offset-md-2">
+                                  <div class="cont">
+                                    <h3 (dblclick)="change($event)" > <span class="multi" (dblclick)="change($event)" >Free Multipurpose </span> <br> Responsive Landing Page 2019</h3>
+                                    <p (dblclick)="change($event)" >It is a long established fact that a reader will be distracted by the readable content of a
+                                      page when looking at its layout. The point of using Lorem Ipsum is</p>
+                                  </div>
+                                  <form class="bottom_form">
+                                    <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
+                                    <button class="sub_btn" (dblclick)="change($event)" >subscribe</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="copyright">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <p (dblclick)="change($event)" >© 2019 All Rights Reserved. Design by <a href="https://html.design/"> Free Html Templates</a>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </footer>
+
+                        <script src="./assets/evolve/js/jquery.min.js"></script>
+                        <script src="./assets/evolve/js/popper.min.js"></script>
+                        <script src="./assets/evolve/js/bootstrap.bundle.min.js"></script>
+                        <script src="./assets/evolve/js/jquery-3.0.0.min.js"></script>
+                        <script src="./assets/evolve/js/plugin.js"></script>
+                        <!-- sidebar -->
+                        <script src="./assets/evolve/js/jquery.mCustomScrollbar.concat.min.js"></script>
+                        <script src="./assets/evolve/js/custom.js"></script>
+                        <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+                      </section>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

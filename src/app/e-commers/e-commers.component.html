@@ -1,0 +1,1015 @@
+<div class="  pt-10 w-75 m-auto">
+  <!-- <button class="btn btn-outline-info" >next</button> -->
+
+
+  <mat-stepper class="m-3 ">
+    <mat-step label="Step 1" state="phone">
+      <p>First step drag template and press Next </p>
+      <div>
+        <button mat-button matStepperNext (click)="next()">Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Step 2" state="chat">
+      <p>you Can edit for everything just double click and put your value </p>
+      <div>
+        <button mat-button matStepperPrevious (click)="back()">Back</button>
+        <button mat-button matStepperNext (click)="finsh()">Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Done">
+      <p>please finish the previous steps</p>
+    </mat-step>
+
+    <!-- Icon overrides. -->
+    <ng-template matStepperIcon="phone">
+      <mat-icon>call_end</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="chat">
+      <mat-icon>forum</mat-icon>
+    </ng-template>
+  </mat-stepper>
+</div>
+<section class=" container-fluid  " id="mainside2" cdkDropListGroup>
+
+
+  <div class="row">
+
+    <div id='sidebar' class="col-md-3  bg-light overflow-hidden">
+      <div cdkDropList [cdkDropListData]="items" class="example-list bg-secondary shadow"
+        (cdkDropListDropped)="drop($event)">
+        <h2 class="text-center fw-bold text-light bg-dark py-3">Drag your templet</h2>
+        <div class="my-5" *ngFor="let item of items" cdkDrag [innerHTML]=item>
+        </div>
+      </div>
+    </div>
+
+    <div id='editbar' class="col-md-3  position-fixed  bg-light overflow-hidden">
+
+      <div class=" p-2">
+        <input type="text" id="date" placeholder="new date" class=" mb-3  form-control">
+        <input type="text" id="color" placeholder="color" class="  mb-3 form-control">
+        <input type="text" id="back" placeholder="back ground" class="  mb-3  form-control">
+
+      </div>
+
+    </div>
+
+
+
+    <div class="col-md-9" id="mainside">
+
+      <div cdkDropList id="ouf" class="example-list h-100" [cdkDropListData]="basket"
+        (cdkDropListDropped)="drop($event)">
+        <div class="" id="d" cdkDrag>
+
+
+
+
+
+
+          <!-- templat zay shop -->
+          <section class="" *ngIf="isTemp1">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+              <div class="container text-light">
+                <div class="w-100 d-flex justify-content-between">
+                  <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none"
+                      href="mailto:info@company.com">info@company.com</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                  </div>
+                  <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                        class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                        class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                        class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                        class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <!-- Close Top Nav -->
+
+            <!-- Header -->
+            <nav class="  navbar navbar-expand-lg navbar-light shadow">
+              <div class="container d-flex justify-content-between align-items-center">
+
+
+
+                <a (dblclick)="change($event)" class="navbar-brand text-success logo h1 align-self-center pointer">
+                  Zay
+
+                </a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                  id="templatemo_main_nav">
+                  <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                      <li class="nav-item">
+
+                        <a class="nav-link" (dblclick)="change($event)">Home</a>
+
+
+
+
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link pointer" (dblclick)="change($event)">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link pointer" (dblclick)="change($event)">Shop</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link pointer" (dblclick)="change($event)">Contact</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                        <div class="input-group-text">
+                          <i class="fa fa-fw fa-search"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                      <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none">
+                      <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none">
+                      <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </nav>
+            <!-- Close Header -->
+
+            <!-- Modal -->
+            <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="w-100 pt-1 mb-5 text-right">
+                  <button type="button" class="btn-outline-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                  <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                      <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+            <!-- Start Banner Hero -->
+            <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="container">
+                    <div class="row p-5">
+                      <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" src="../../assets/assetsZayShop/img/banner_img_01.jpg" alt="">
+                      </div>
+                      <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left align-self-center">
+                          <h1 class="h1 text-success" (dblclick)="change($event)"><b (dblclick)="change($event)">Zay</b>
+                            eCommerce</h1>
+                          <h3 class="h2" (dblclick)="change($event)">Tiny and Perfect eCommerce Template</h3>
+                          <p (dblclick)="change($event)">
+                            Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta
+                            1).
+                            This template is 100% free provided by <a rel="sponsored" class="text-success"
+                              href="https://templatemo.com" target="_blank">TemplateMo</a> website.
+                            Image credits go to <a rel="sponsored" class="text-success"
+                              href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
+                            <a rel="sponsored" class="text-success" href="https://unsplash.com/"
+                              target="_blank">Unsplash</a> and
+                            <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons
+                              8</a>.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="container">
+                    <div class="row p-5">
+                      <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" src="../../assets/assetsZayShop/img/banner_img_02.jpg" alt="">
+                      </div>
+                      <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left">
+                          <h1 class="h1" (dblclick)="change($event)">Proident occaecat</h1>
+                          <h3 class="h2" (dblclick)="change($event)">Aliquip ex ea commodo consequat</h3>
+                          <p (dblclick)="change($event)">
+                            You are permitted to use this Zay CSS template for your commercial websites.
+                            You are <strong>not permitted</strong> to re-distribute the template ZIP file in any
+                            kind of
+                            template collection websites.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="container">
+                    <div class="row p-5">
+                      <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" src="../../assets/assetsZayShop/img/banner_img_03.jpg" alt="">
+                      </div>
+                      <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left">
+                          <h1 class="h1" (dblclick)="change($event)">Repr in voluptate</h1>
+                          <h3 class="h2" (dblclick)="change($event)">Ullamco laboris nisi ut </h3>
+                          <p (dblclick)="change($event)">
+                            We bring you 100% free CSS templates for your websites.
+                            If you wish to support TemplateMo, please make a small contribution via PayPal or
+                            tell your
+                            friends about our website. Thank you.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a (dblclick)="change($event)" class="carousel-control-prev text-decoration-none w-auto ps-3"
+                href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+                <i class="fas fa-chevron-left"></i>
+              </a>
+              <a (dblclick)="change($event)" class="carousel-control-next text-decoration-none w-auto pe-3"
+                href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+            <!-- End Banner Hero -->
+
+
+            <!-- Start Categories of The Month -->
+            <section class="container py-5">
+              <div class="row text-center pt-3">
+                <div class="col-lg-6 m-auto">
+                  <h1 class="h1" (dblclick)="change($event)">Categories of The Month</h1>
+                  <p (dblclick)="change($event)">
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-4 p-5 mt-3">
+                  <a><img src="../../assets/assetsZayShop/img/category_img_01.jpg"
+                      class="rounded-circle img-fluid border"></a>
+                  <h5 class="text-center mt-3 mb-3" (dblclick)="change($event)">Watches</h5>
+                  <p class="text-center"><a class="btn btn-outline-success" (dblclick)="change($event)">Go Shop</a></p>
+                </div>
+                <div class="col-12 col-md-4 p-5 mt-3">
+                  <a><img src="../../assets/assetsZayShop/img/category_img_02.jpg"
+                      class="rounded-circle img-fluid border"></a>
+                  <h2 class="h5 text-center mt-3 mb-3" (dblclick)="change($event)">Shoes</h2>
+                  <p class="text-center"><a class="btn btn-outline-success" (dblclick)="change($event)">Go Shop</a></p>
+                </div>
+                <div class="col-12 col-md-4 p-5 mt-3">
+                  <a><img src="../../assets/assetsZayShop/img/category_img_03.jpg"
+                      class="rounded-circle img-fluid border"></a>
+                  <h2 class="h5 text-center mt-3 mb-3" (dblclick)="change($event)">Accessories</h2>
+                  <p class="text-center"><a class="btn btn-outline-success" (dblclick)="change($event)">Go Shop</a></p>
+                </div>
+              </div>
+            </section>
+            <!-- End Categories of The Month -->
+
+
+            <!-- Start Featured Product -->
+            <section class="bg-light">
+              <div class="container py-5">
+                <div class="row text-center py-3">
+                  <div class="col-lg-6 m-auto">
+                    <h1 class="h1" (dblclick)="change($event)">Featured Product</h1>
+                    <p (dblclick)="change($event)">
+                      Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                      Excepteur sint occaecat cupidatat non proident.
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                      <a>
+                        <img src="../../assets/assetsZayShop/img/feature_prod_01.jpg" class="card-img-top" alt="...">
+                      </a>
+                      <div class="card-body">
+                        <ul class="list-unstyled d-flex justify-content-between">
+                          <li>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-muted fa fa-star"></i>
+                            <i class="text-muted fa fa-star"></i>
+                          </li>
+                          <li class="text-muted text-right" (dblclick)="change($event)">$240.00</li>
+                        </ul>
+                        <a class="h2 text-decoration-none text-dark" (dblclick)="change($event)">Gym Weight</a>
+                        <p class="card-text" (dblclick)="change($event)">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                        </p>
+                        <p class="text-muted " (dblclick)="change($event)">Reviews (24)</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                      <a>
+                        <img src="../../assets/assetsZayShop/img/feature_prod_02.jpg" class="card-img-top" alt="...">
+                      </a>
+                      <div class="card-body">
+                        <ul class="list-unstyled d-flex justify-content-between">
+                          <li>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-muted fa fa-star"></i>
+                            <i class="text-muted fa fa-star"></i>
+                          </li>
+                          <li class="text-muted text-right" (dblclick)="change($event)">$480.00</li>
+                        </ul>
+                        <a class="h2 text-decoration-none text-dark" (dblclick)="change($event)">Cloud Nike Shoes</a>
+                        <p class="card-text" (dblclick)="change($event)">
+                          Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo
+                          ullamcorper.
+                        </p>
+                        <p class="text-muted  " (dblclick)="change($event)">Reviews (48)</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                      <a>
+                        <img src="../../assets/assetsZayShop/img/feature_prod_03.jpg" class="card-img-top" alt="...">
+                      </a>
+                      <div class="card-body">
+                        <ul class="list-unstyled d-flex justify-content-between">
+                          <li>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-warning fa fa-star"></i>
+                            <i class="text-warning fa fa-star"></i>
+                          </li>
+                          <li class="text-muted text-right" (dblclick)="change($event)">$360.00</li>
+                        </ul>
+                        <a class="h2 text-decoration-none text-dark" (dblclick)="change($event)">Summer Addides
+                          Shoes</a>
+                        <p class="card-text" (dblclick)="change($event)">
+                          Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque
+                          ipsum lobortis nec.
+                        </p>
+                        <p class="text-muted" (dblclick)="change($event)">Reviews (74)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- End Featured Product -->
+
+
+            <!-- Start Footer -->
+            <footer class="bg-dark" id="tempaltemo_footer">
+              <div class="container">
+                <div class="row">
+
+                  <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo" (dblclick)="change($event)">Zay
+                      Shop</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                      <li (dblclick)="change($event)">
+                        <i class="fas fa-map-marker-alt fa-fw"></i>
+                        123 Consectetur at ligula 10660
+                      </li>
+                      <li>
+                        <i class="fa fa-phone fa-fw"></i>
+                        <a class="text-decoration-none " (dblclick)="change($event)">010-020-0340</a>
+                      </li>
+                      <li>
+                        <i class="fa fa-envelope fa-fw"></i>
+                        <a class="text-decoration-none" (dblclick)="change($event)">info@company.com</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light" (dblclick)="change($event)">Products</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Luxury</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Sport Wear</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Men's Shoes</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Women's Shoes</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Popular Dress</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Gym Accessories</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Sport Shoes</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light" (dblclick)="change($event)">Further Info
+                    </h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Home</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">About Us</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Shop Locations</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">FAQs</a></li>
+                      <li><a class="text-decoration-none" (dblclick)="change($event)">Contact</a></li>
+                    </ul>
+                  </div>
+
+                </div>
+
+                <div class="row text-light mb-4">
+                  <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                  </div>
+                  <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i
+                            class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i
+                            class="fab fa-instagram fa-lg fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
+                            class="fab fa-twitter fa-lg fa-fw"></i></a>
+                      </li>
+                      <li class="list-inline-item border border-light rounded-circle text-center">
+                        <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i
+                            class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-100 bg-black py-3">
+                <div class="container">
+                  <div class="row pt-2">
+                    <div class="col-12">
+                      <p class="text-left text-light" (dblclick)="change($event)">
+                        Copyright &copy; 2021 Company Name
+                        | Designed by <a rel="sponsored" target="_blank" (dblclick)="change($event)">TemplateMo</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </footer>
+            <!-- End Footer -->
+
+            <!-- Start Script for zay shop-->
+            <script src="../../assets/assetsZayShop/js/jquery-1.11.0.min.js"></script>
+            <script src="../../assets/assetsZayShop/js/jquery-migrate-1.2.1.min.js"></script>
+            <script src="../../assets/assetsZayShop/js/bootstrap.bundle.min.js"></script>
+            <script src="../../assets/assetsZayShop/js/templatemo.js"></script>
+            <script src="../../assets/assetsZayShop/js/custom.js"></script>
+            <!-- End Script -->
+
+          </section>
+
+
+
+
+
+
+
+          <section class="aroma" *ngIf="isTemp2">
+
+
+            <!--================ Start Header Menu Area =================-->
+            <header class="header_area">
+              <div class="main_menu">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                  <div class="container">
+                    <a class="navbar-brand logo_h pointer"><img src="../../assets/assetsAroma/img/logo.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                      aria-label="Toggle navigation">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                      <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+                        <li class="nav-item active"><a class="nav-link pointer" (dblclick)="change($event)">Home</a>
+                        </li>
+                        <li class="nav-item submenu dropdown">
+                          <a class="nav-link dropdown-toggle pointer" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false" (dblclick)="change($event)">Shop</a>
+                          <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)"
+                                (dblclick)="change($event)">Shop Category</a></li>
+                            <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)"
+                                (dblclick)="change($event)">Product Details</a></li>
+                            <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)"
+                                (dblclick)="change($event)">Confirmation</a></li>
+                            <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)"
+                                (dblclick)="change($event)">Shopping Cart</a></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item submenu dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false" (dblclick)="change($event)">Blog</a>
+                          <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)">Blog
+                                Details</a></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item submenu dropdown">
+                          <a class="nav-link pointer dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false" (dblclick)="change($event)"
+                            (dblclick)="change($event)">Pages</a>
+                          <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)">Login</a></li>
+                            <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)">Register</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)">Tracking</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link pointer" (dblclick)="change($event)">Contact</a></li>
+                      </ul>
+
+                      <ul class="nav-shop">
+                        <li class="nav-item"><button><i class="ti-search"></i></button></li>
+                        <li class="nav-item"><button><i class="ti-shopping-cart"></i><span
+                              class="nav-shop__circle"></span></button> </li>
+                        <li class="nav-item"><a class="button button-header pointer" (dblclick)="change($event)">Buy
+                            Now</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </header>
+            <!--================ End Header Menu Area =================-->
+
+            <main class="site-main">
+
+              <!--================ Hero banner start =================-->
+              <section class="hero-banner">
+                <div class="container">
+                  <div class="row no-gutters align-items-center pt-60px">
+                    <div class="col-5 d-none d-sm-block">
+                      <div class="hero-banner__img">
+                        <img class="img-fluid" src="../../assets/assetsAroma/img/home/hero-banner.png" alt="">
+                      </div>
+                    </div>
+                    <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+                      <div class="hero-banner__content">
+                        <h4 (dblclick)="change($event)">Shop is fun</h4>
+                        <h1 (dblclick)="change($event)">Browse Our Premium Product</h1>
+                        <p (dblclick)="change($event)">Us which over of signs divide dominion deep fill bring they're
+                          meat beho upon own earth
+                          without morning over third. Their male dry. They are great appear whose land fly grass.</p>
+                        <a class="button button-hero button-hov pointer" (dblclick)="change($event)">Browse Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!--================ Hero banner start =================-->
+
+              <!--================ Hero Carousel start =================-->
+              <section class="section-margin mt-0">
+                <div class="owl-carousel owl-theme hero-carousel">
+                  <div class="hero-carousel__slide">
+                    <img src="../../assets/assetsAroma/img/home/hero-slide1.png" alt="" class="img-fluid">
+                    <a class="hero-carousel__slideOverlay">
+                      <h3 (dblclick)="change($event)">Wireless Headphone</h3>
+                      <p (dblclick)="change($event)">Accessories Item</p>
+                    </a>
+                  </div>
+                  <div class="hero-carousel__slide">
+                    <img src="../../assets/assetsAroma/img/home/hero-slide2.png" alt="" class="img-fluid">
+                    <a class="hero-carousel__slideOverlay">
+                      <h3 (dblclick)="change($event)">Wireless Headphone</h3>
+                      <p (dblclick)="change($event)" (dblclick)="change($event)">Accessories Item</p>
+                    </a>
+                  </div>
+                  <div class="hero-carousel__slide">
+                    <img src="../../assets/assetsAroma/img/home/hero-slide3.png" alt="" class="img-fluid">
+                    <a class="hero-carousel__slideOverlay">
+                      <h3 (dblclick)="change($event)">Wireless Headphone</h3>
+                      <p (dblclick)="change($event)">Accessories Item</p>
+                    </a>
+                  </div>
+                </div>
+              </section>
+              <!--================ Hero Carousel end =================-->
+
+              <!-- ================ trending product section start ================= -->
+              <section class="section-margin calc-60px">
+                <div class="container">
+                  <div class="section-intro pb-60px">
+                    <p (dblclick)="change($event)">Popular Item in the market</p>
+                    <h2 (dblclick)="change($event)">Trending <span class="section-intro__style">Product</span></h2>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                      <div class="card text-center card-product">
+                        <div class="card-product__img">
+                          <img class="card-img" src="../../assets/assetsAroma/img/product/product1.png" alt="">
+                          <ul class="card-product__imgOverlay">
+                            <li><button><i class="ti-search"></i></button></li>
+                            <li><button><i class="ti-shopping-cart"></i></button></li>
+                            <li><button><i class="ti-heart"></i></button></li>
+                          </ul>
+                        </div>
+                        <div class="card-body">
+                          <p>Accessories</p>
+                          <h4 class="card-product__title"><a (dblclick)="change($event)">Quartz Belt Watch</a></h4>
+                          <p class="card-product__price" (dblclick)="change($event)">$150.00</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                      <div class="card text-center card-product">
+                        <div class="card-product__img">
+                          <img class="card-img" src="../../assets/assetsAroma/img/product/product2.png" alt="">
+                          <ul class="card-product__imgOverlay">
+                            <li><button><i class="ti-search"></i></button></li>
+                            <li><button><i class="ti-shopping-cart"></i></button></li>
+                            <li><button><i class="ti-heart"></i></button></li>
+                          </ul>
+                        </div>
+                        <div class="card-body">
+                          <p>Beauty</p>
+                          <h4 class="card-product__title"><a>Women Freshwash</a></h4>
+                          <p class="card-product__price">$150.00</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                      <div class="card text-center card-product">
+                        <div class="card-product__img">
+                          <img class="card-img" src="../../assets/assetsAroma/img/product/product3.png" alt="">
+                          <ul class="card-product__imgOverlay">
+                            <li><button><i class="ti-search"></i></button></li>
+                            <li><button><i class="ti-shopping-cart"></i></button></li>
+                            <li><button><i class="ti-heart"></i></button></li>
+                          </ul>
+                        </div>
+                        <div class="card-body">
+                          <p>Decor</p>
+                          <h4 class="card-product__title"><a (dblclick)="change($event)">Room Flash Light</a></h4>
+                          <p class="card-product__price" (dblclick)="change($event)">$150.00</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                      <div class="card text-center card-product">
+                        <div class="card-product__img">
+                          <img class="card-img" src="../../assets/assetsAroma/img/product/product4.png" alt="">
+                          <ul class="card-product__imgOverlay">
+                            <li><button><i class="ti-search"></i></button></li>
+                            <li><button><i class="ti-shopping-cart"></i></button></li>
+                            <li><button><i class="ti-heart"></i></button></li>
+                          </ul>
+                        </div>
+                        <div class="card-body">
+                          <p>Decor</p>
+                          <h4 class="card-product__title"><a (dblclick)="change($event)">Room Flash Light</a></h4>
+                          <p class="card-product__price" (dblclick)="change($event)">$150.00</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                      <div class="card text-center card-product">
+                        <div class="card-product__img">
+                          <img class="card-img" src="../../assets/assetsAroma/img/product/product5.png" alt="">
+                          <ul class="card-product__imgOverlay">
+                            <li><button><i class="ti-search"></i></button></li>
+                            <li><button><i class="ti-shopping-cart"></i></button></li>
+                            <li><button><i class="ti-heart"></i></button></li>
+                          </ul>
+                        </div>
+                        <div class="card-body">
+                          <p>Accessories</p>
+                          <h4 class="card-product__title"><a (dblclick)="change($event)">Man Office Bag</a></h4>
+                          <p class="card-product__price" (dblclick)="change($event)">$150.00</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                      <div class="card text-center card-product">
+                        <div class="card-product__img">
+                          <img class="card-img" src="../../assets/assetsAroma/img/product/product6.png" alt="">
+                          <ul class="card-product__imgOverlay">
+                            <li><button><i class="ti-search"></i></button></li>
+                            <li><button><i class="ti-shopping-cart"></i></button></li>
+                            <li><button><i class="ti-heart"></i></button></li>
+                          </ul>
+                        </div>
+                        <div class="card-body">
+                          <p>Kids Toy</p>
+                          <h4 class="card-product__title" (dblclick)="change($event)"><a>Charging Car</a></h4>
+                          <p class="card-product__price" (dblclick)="change($event)">$150.00</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                      <div class="card text-center card-product">
+                        <div class="card-product__img">
+                          <img class="card-img" src="../../assets/assetsAroma/img/product/product7.png" alt="">
+                          <ul class="card-product__imgOverlay">
+                            <li><button><i class="ti-search"></i></button></li>
+                            <li><button><i class="ti-shopping-cart"></i></button></li>
+                            <li><button><i class="ti-heart"></i></button></li>
+                          </ul>
+                        </div>
+                        <div class="card-body">
+                          <p>Accessories</p>
+                          <h4 class="card-product__title" (dblclick)="change($event)"><a>Blutooth Speaker</a></h4>
+                          <p class="card-product__price" (dblclick)="change($event)">$150.00</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                      <div class="card text-center card-product">
+                        <div class="card-product__img">
+                          <img class="card-img" src="../../assets/assetsAroma/img/product/product8.png" alt="">
+                          <ul class="card-product__imgOverlay">
+                            <li><button><i class="ti-search"></i></button></li>
+                            <li><button><i class="ti-shopping-cart"></i></button></li>
+                            <li><button><i class="ti-heart"></i></button></li>
+                          </ul>
+                        </div>
+                        <div class="card-body">
+                          <p>Kids Toy</p>
+                          <h4 class="card-product__title" (dblclick)="change($event)"><a>Charging Car</a></h4>
+                          <p class="card-product__price" (dblclick)="change($event)" (dblclick)="change($event)"
+                            (dblclick)="change($event)">$150.00</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- ================ trending product section end ================= -->
+
+
+              <!-- ================ offer section start ================= -->
+              <section class="offer mb-5" id="parallax-1" data-anchor-target="#parallax-1"
+                data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xl-5">
+                      <div class="offer__content text-center">
+                        <h3 (dblclick)="change($event)" (dblclick)="change($event)">Up To 50% Off</h3>
+                        <h4 (dblclick)="change($event)" (dblclick)="change($event)">Winter Sale</h4>
+                        <p (dblclick)="change($event)" (dblclick)="change($event)">Him she'd let them sixth saw light
+                        </p>
+                        <a class="button button--active mt-3 mt-xl-4 button-hov pointer">Shop Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- ================ offer section end ================= -->
+
+              <!-- ================ Blog section start ================= -->
+              <section class="blog mt-5">
+                <div class="container">
+                  <div class="section-intro pb-60px">
+                    <p (dblclick)="change($event)">Popular Item in the market</p>
+                    <h2 (dblclick)="change($event)">Latest <span class="section-intro__style">News</span></h2>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                      <div class="card card-blog">
+                        <div class="card-blog__img">
+                          <img class="card-img rounded-0" src="../../assets/assetsAroma/img/blog/blog1.png" alt="">
+                        </div>
+                        <div class="card-body">
+                          <ul class="card-blog__info">
+                            <li><a>By Admin</a></li>
+                            <li><a (dblclick)="change($event)"><i class="ti-comments-smiley"></i> 2 Comments</a></li>
+                          </ul>
+                          <h4 class="card-blog__title pointer"><a (dblclick)="change($event)">The Richland Center
+                              Shooping News and weekly
+                              shooper</a></h4>
+                          <p (dblclick)="change($event)">Let one fifth i bring fly to divided face for bearing divide
+                            unto seed. Winged divided
+                            light Forth.</p>
+                          <a class="card-blog__link pointer" (dblclick)="change($event)">Read More <i
+                              class="ti-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                      <div class="card card-blog">
+                        <div class="card-blog__img">
+                          <img class="card-img rounded-0" src="../../assets/assetsAroma/img/blog/blog2.png" alt="">
+                        </div>
+                        <div class="card-body">
+                          <ul class="card-blog__info">
+                            <li><a (dblclick)="change($event)">By Admin</a></li>
+                            <li><a (dblclick)="change($event)"><i class="ti-comments-smiley"></i> 2 Comments</a></li>
+                          </ul>
+                          <h4 (dblclick)="change($event)" class="card-blog__title pointer"><a>The Shopping News also
+                              offers top-quality printing
+                              services</a></h4>
+                          <p (dblclick)="change($event)">Let one fifth i bring fly to divided face for bearing divide
+                            unto seed. Winged divided
+                            light Forth.</p>
+                          <a class="card-blog__link pointer" (dblclick)="change($event)">Read More <i
+                              class="ti-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                      <div class="card card-blog">
+                        <div class="card-blog__img">
+                          <img class="card-img rounded-0" src="../../assets/assetsAroma/img/blog/blog3.png" alt="">
+                        </div>
+                        <div class="card-body">
+                          <ul class="card-blog__info">
+                            <li><a (dblclick)="change($event)">By Admin</a></li>
+                            <li><a (dblclick)="change($event)"><i class="ti-comments-smiley"></i> 2 Comments</a></li>
+                          </ul>
+                          <h4 class="card-blog__title pointer"><a (dblclick)="change($event)">Professional design staff
+                              and efficient equipment
+                              you’ll find
+                              </a></h4>
+                          <p (dblclick)="change($event)">Let one fifth i bring fly to divided face for bearing divide
+                            unto seed. Winged divided
+                            light Forth.</p>
+                          <a class="card-blog__link pointer" (dblclick)="change($event)">Read More <i
+                              class="ti-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- ================ Blog section end ================= -->
+
+              <!-- ================ Subscribe section start ================= -->
+              <section class="subscribe-position">
+                <div class="container">
+                  <div class="subscribe text-center">
+                    <h3 class="subscribe__title" (dblclick)="change($event)">Get Update From Anywhere</h3>
+                    <p (dblclick)="change($event)">Bearing Void gathering light light his eavening unto dont afraid</p>
+                    <div id="mc_embed_signup">
+                      <form target="_blank"
+                        action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                        method="get" class="subscribe-form form-inline mt-5 pt-1">
+                        <div class="form-group ml-sm-auto">
+                          <input class="form-control mb-1" type="email" name="EMAIL" placeholder="Enter your email"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">
+                          <div class="info"></div>
+                        </div>
+                        <button class="button button-subscribe mr-auto mb-1" type="submit"
+                          (dblclick)="change($event)">Subscribe Now</button>
+                        <div style="position: absolute; left: -5000px;">
+                          <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                        </div>
+
+                      </form>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+              <!-- ================ Subscribe section end ================= -->
+
+            </main>
+
+            <!--================ Start footer Area  =================-->
+            <footer class="footer">
+              <div class="footer-area">
+                <div class="container">
+                  <div class="row section_gap">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="single-footer-widget tp_widgets text-start">
+                        <h4 class="footer_title large_title" (dblclick)="change($event)">Our Mission</h4>
+                        <p (dblclick)="change($event)">
+                          So seed seed green that winged cattle in. Gathering thing made fly you're no
+                          divided deep moved us lan Gathering thing us land years living.
+                        </p>
+                        <p (dblclick)="change($event)">
+                          So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep
+                          moved
+                        </p>
+                      </div>
+                    </div>
+                    <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+                      <div class="single-footer-widget tp_widgets">
+                        <h4 class="footer_title" الجوكر>Quick Links</h4>
+                        <ul class="list">
+                          <li><a (dblclick)="change($event)">Home</a></li>
+                          <li><a (dblclick)="change($event)">Shop</a></li>
+                          <li><a (dblclick)="change($event)">Blog</a></li>
+                          <li><a (dblclick)="change($event)">Product</a></li>
+                          <li><a (dblclick)="change($event)" (dblclick)="change($event)">Brand</a></li>
+                          <li><a (dblclick)="change($event)">Contact</a></li>
+                        </ul>
+                      </div>
+                    </div>
+      
+                    <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+                      <div class="single-footer-widget tp_widgets text-start">
+                        <h4 class="footer_title" (dblclick)="change($event)">Contact Us</h4>
+                        <div class="ml-40">
+                          <p class="sm-head">
+                            <span class="fa fa-location-arrow"></span>
+                            Head Office
+                          </p>
+                          <p (dblclick)="change($event)">123, Main Street, Your City</p>
+
+                          <p class="sm-head">
+                            <span class="fa fa-phone"></span>
+                            Phone Number
+                          </p>
+                          <p (dblclick)="change($event)">
+                            +123 456 7890 <br>
+                            +123 456 7890
+                          </p>
+
+                          <p class="sm-head">
+                            <span class="fa fa-envelope"></span>
+                            Email
+                          </p>
+                          <p (dblclick)="change($event)">
+                            free@infoexample.com <br>
+                            www.infoexample.com
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="footer-bottom">
+                <div class="container">
+                  <div class="row d-flex">
+                    <p class="col-lg-12 footer-text text-center">
+                      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                      Copyright &copy;
+                      <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is
+                      made with <i class="fa fa-heart" aria-hidden="true"></i> by <a target="_blank">Colorlib</a>
+                      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <!--================ End footer Area  =================-->
+
+            <script src="../../assets/assetsAroma/vendors/jquery/jquery-3.2.1.min.js"></script>
+            <script src="../../assets/assetsAroma/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+            <script src="../../assets/assetsAroma/vendors/skrollr.min.js"></script>
+            <script src="../../assets/assetsAroma/vendors/owl-carousel/owl.carousel.min.js"></script>
+            <script src="../../assets/assetsAroma/vendors/nice-select/jquery.nice-select.min.js"></script>
+            <script src="../../assets/assetsAroma/vendors/jquery.ajaxchimp.min.js"></script>
+            <script src="../../assets/assetsAroma/vendors/mail-script.js"></script>
+            <script src="../../assets/assetsAroma/js/main.js"></script>
+          </section>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,69 @@
+<section class="container-fluid row pt-10">
+
+    <div class="col-md-6 mx-auto d-flex align-items-stretch">
+        <img src="../../assets/image/arranging-files.svg" class="my-4">
+    </div>
+
+    <div class="col-md-6 ms-auto my-5">
+
+
+
+        <form [formGroup]=loginForm (ngSubmit)=loginSubmit(loginForm) class="mx-auto my-5 w-75">
+
+            <h1 class="text-center fw-bold my-3">Sign In</h1>
+
+            <div class="alert alert-dismissible alert-danger mt-3 text-center mx-auto" *ngIf="errorsMsg">{{errorsMsg}}
+            </div>
+
+            <div class="my-4 me-auto form-group">
+                <div class="form-floating">
+                    <input type="email" placeholder="Email" formControlName="email" id="email"
+                        [ngClass]="{'form-control': true, 'is-invalid': (loginForm.get('email')?.errors != null && loginForm.get('email')?.touched), 'is-valid': !(loginForm.get('email')?.errors != null)}"
+                        [(ngModel)]="emailValue">
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="text-danger ps-2 my-2"
+                    *ngIf="(loginForm.get('email')?.errors != null && loginForm.get('email')?.touched) || emptyEmail">
+                    <p *ngIf="loginForm.get('email')?.errors?.required">Email Required</p>
+                    <p *ngIf="loginForm.get('email')?.errors?.email">Email Invalid</p>
+                </div>
+            </div>
+
+            <div class="mb-4 me-auto form-group">
+                <div class="input-group mb-3 form-floating">
+                    <input type="password" placeholder="Password" formControlName="password" id="pass"
+                        class="form-control ps-4" [(ngModel)]="passValue">
+                    <span id="logIn_pass_eye" class="input-group-text"><i id="logIn_eye" class="far fa-eye-slash"></i></span>
+                    <label for="pass">Password</label>
+                </div>
+
+                <div class="text-danger ps-2 my-2"
+                    *ngIf="(loginForm.get('password')?.errors != null && loginForm.get('password')?.touched) || emptyPass">
+                    <p *ngIf="loginForm.get('password')?.errors?.required">Password Required</p>
+                </div>
+            </div>
+
+            <div class="my-5">
+                <button type="submit" id="loginBtn" class="btn btn-outline-info text-white w-100 rounded fs-5">Login</button>
+            </div>
+            <div class="my-5 py-1">
+                <p class="fs-4">Don't have an account? <a href="#/register" class="text-decoration-none fw-bold fs-4">Register</a>
+                </p>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+<section id="loading" class="d-flex justify-content-center align-items-center" *ngIf="isClick">
+
+    <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+    </div>
+</section>

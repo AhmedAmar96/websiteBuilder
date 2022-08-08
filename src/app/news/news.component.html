@@ -1,0 +1,458 @@
+<div class="  pt-10 w-75 m-auto">
+  <!-- <button class="btn btn-outline-info" >next</button> -->
+
+
+  <mat-stepper class="m-3 ">
+    <mat-step label="Step 1" state="phone">
+      <p>First step drag template and press Next </p>
+      <div>
+        <button mat-button matStepperNext (click)="next()">Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Step 2" state="chat">
+      <p>you Can edit for everything just double click and put your value </p>
+      <div>
+        <button mat-button matStepperPrevious (click)="back()">Back</button>
+        <button mat-button matStepperNext (click)="finsh()">Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Done">
+      <p>You're welcome.</p>
+    </mat-step>
+
+    <!-- Icon overrides. -->
+    <ng-template matStepperIcon="phone">
+      <mat-icon>call_end</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="chat">
+      <mat-icon>forum</mat-icon>
+    </ng-template>
+  </mat-stepper>
+</div>
+
+<section class="pt-10 container-fluid  " id="mainside2" cdkDropListGroup>
+
+  <div class="row">
+
+    <div id='editbar' class="col-md-3  position-fixed  bg-light overflow-hidden">
+
+      <div class=" p-2">
+        <input type="text" id="date" placeholder="new date" class=" mb-3  form-control">
+        <input type="text" id="color" placeholder="color" class="  mb-3 form-control">
+        <input type="text" id="back" placeholder="back ground" class="  mb-3  form-control">
+
+      </div>
+
+    </div>
+
+
+
+    <div id='sidebar' class="col-md-3  bg-light overflow-hidden">
+      <div cdkDropList [cdkDropListData]="items" class="example-list bg-secondary shadow"
+        (cdkDropListDropped)="drop($event)">
+        <h2 class="text-center fw-bold text-light bg-dark py-3">Drag your templet</h2>
+        <div class="my-5" *ngFor="let item of items" cdkDrag [innerHTML]=item>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9" id="mainside">
+      <div cdkDropList id="ouf" class="example-list h-100" [cdkDropListData]="basket"
+        (cdkDropListDropped)="drop($event)">
+        <div class="" cdkDrag>
+
+
+          <section *ngIf="isTemp1">
+            <div class="body_wrapper">
+              <div class="center">
+                <div class="header_area">
+                  <div class="logo floatleft"><a><img src="../../assets/assetsNewsReporter/images/logo.png"
+                        alt="" /></a>
+                  </div>
+                  <div class="top_menu floatleft">
+                    <ul>
+                      <li><a (dblclick)="change($event)">Home</a></li>
+                      <li><a (dblclick)="change($event)">About</a></li>
+                      <li><a (dblclick)="change($event)">Contact us</a></li>
+                    </ul>
+                  </div>
+                  <div class="social_plus_search floatright">
+                    <div class="social">
+                      <ul>
+                        <li><a class="twitter"></a></li>
+                        <li><a class="facebook"></a></li>
+                        <li><a class="feed"></a></li>
+                      </ul>
+                    </div>
+                    <div class="search">
+                      <form action="#" method="post" id="search_form">
+                        <input type="text" value="Search news" id="s" />
+                        <input type="submit" id="searchform" value="search" />
+                        <input type="hidden" value="post" name="post_type" />
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_menu_area">
+                  <ul id="nav">
+                    <li class="text-white"><a (dblclick)="change($event)">world news</a>
+                      <ul>
+                        <li><a (dblclick)="change($event)" (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)" (dblclick)="change($event)"> Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a>
+                          <ul>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                          </ul>
+                        </li> (dblclick)="change($event)"
+                        <li><a (dblclick)="change($event)" (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)" (dblclick)="change($event)">Single item</a></li>
+                      </ul>
+                    </li>
+                    <li class="text-white"><a>sports</a></li>
+                    <li class="text-white"><a>tech</a>
+                      <ul>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                      </ul>
+                    </li>
+                    <li class="text-white"><a>business</a></li>
+                    <li class="text-white"><a>Movies</a>
+                      <ul> (dblclick)="change($event)"
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a>
+                          <ul>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                            <li><a (dblclick)="change($event)">Single item</a></li>
+                          </ul>
+                        </li>
+                        <li><a (dblclick)="change($event)" (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)" (dblclick)="change($event)">Single item</a></li>
+                      </ul>
+                    </li>
+                    <li class="text-white"><a>culture</a></li>
+                    <li class="text-white"><a>Books</a>
+                      <ul>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                        <li><a (dblclick)="change($event)">Single item</a></li>
+                      </ul>
+                    </li>
+                    <li class="text-white"><a (dblclick)="change($event)">classifieds</a></li>
+                    <li class="text-white"><a (dblclick)="change($event)">blogs</a></li>
+                  </ul>
+                </div>
+                <div class="slider_area">
+                  <div class="slider">
+                    <ul class="bxslider">
+                      <li><img src="../../assets/assetsNewsReporter/images/1.jpg" alt="" title="Slider caption text" />
+                      </li>
+                      <li><img src="../../assets/assetsNewsReporter/images/2.jpg" alt="" title="Slider caption text" />
+                      </li>
+                      <li><img src="../../assets/assetsNewsReporter/images/3.jpg" alt="" title="Slider caption text" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="content_area">
+                  <div class="main_content floatleft">
+                    <div class="left_coloum floatleft">
+                      <div class="single_left_coloum_wrapper mb-5">
+                        <h2 class="title" (dblclick)="change($event)">from around the world</h2>
+                        <a class="more text-white text-white">more</a>
+                        <div class="single_left_coloum floatleft"> <img
+                            src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet, consectetur</h3>
+                          <p class="fs-6 fw-light" (dblclick)="change($event)">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper
+                            dolor eu mattis.</p>
+                          <a class="readmore text-danger" (dblclick)="change($event)">read more</a>
+                        </div>
+                        <div class="single_left_coloum floatleft"> <img
+                            src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet, consectetur</h3>
+                          <p class="fs-6 fw-light">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper
+                            dolor eu mattis.</p>
+                          <a class="readmore text-danger" (dblclick)="change($event)">read more</a>
+                        </div>
+                        <div class="single_left_coloum floatleft"> <img
+                            src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet, consectetur</h3>
+                          <p class="fs-6 fw-light" (dblclick)="change($event)">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper
+                            dolor eu mattis.</p>
+                          <a class="readmore text-danger" (dblclick)="change($event)">read more</a>
+                        </div>
+                      </div>
+                      <div class="single_left_coloum_wrapper">
+                        <h2 class="title" (dblclick)="change($event)">latest articles</h2>
+                        <a class="more text-white" (dblclick)="change($event)">more</a>
+                        <div class="single_left_coloum floatleft"> <img
+                            src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet, consectetur</h3>
+                          <p class="fs-6 fw-light" (dblclick)="change($event)">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper
+                            dolor eu mattis.</p>
+                          <a class="readmore text-danger">read more</a>
+                        </div>
+                        <div class="single_left_coloum floatleft"> <img
+                            src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet, consectetur</h3>
+                          <p class="fs-6 fw-light">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper
+                            dolor eu mattis.</p>
+                          <a class="readmore text-danger">read more</a>
+                        </div>
+                        <div class="single_left_coloum floatleft"> <img
+                            src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet, consectetur</h3>
+                          <p class="fs-6 fw-light">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper
+                            dolor eu mattis.</p>
+                          <a class="readmore text-danger" (dblclick)="change($event)">read more</a>
+                        </div>
+                      </div>
+                      <div class="single_left_coloum_wrapper gallery">
+                        <h2 class="title">gallery</h2>
+                        <a class="more text-white">more</a> <img
+                          src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" /> <img
+                          src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" /> <img
+                          src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" /> <img
+                          src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" /> <img
+                          src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" /> <img
+                          src="../../assets/assetsNewsReporter/images/single_featured.png" alt="" />
+                      </div>
+                      <div class="single_left_coloum_wrapper single_cat_left">
+                        <h2 class="title" (dblclick)="change($event)">tech news</h2>
+                        <a class="more text-white">more</a>
+                        <div class="single_cat_left_content floatleft">
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit </h3>
+                          <p class="fs-6 fw-light" (dblclick)="change($event)">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper dolor ...interdum</p>
+                          <p class="single_cat_left_content_meta" (dblclick)="change($event)">by <span>John Doe</span> |
+                            29 comments</p>
+                        </div>
+                        <div class="single_cat_left_content floatleft">
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit </h3>
+                          <p class="fs-6 fw-light">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper dolor ...interdum</p>
+                          <p class="single_cat_left_content_meta" (dblclick)="change($event)">by <span>John Doe</span> |
+                            29 comments</p>
+                        </div>
+                        <div class="single_cat_left_content floatleft">
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit </h3>
+                          <p class="fs-6 fw-light" (dblclick)="change($event)">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper dolor ...interdum</p>
+                          <p class="single_cat_left_content_meta" (dblclick)="change($event)">by <span>John Doe</span> |
+                            29 comments</p>
+                        </div>
+                        <div class="single_cat_left_content floatleft">
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit </h3>
+                          <p (dblclick)="change($event)" class="fs-6 fw-light">Nulla quis lorem neque, mattis venenatis
+                            lectus. In interdum ullamcorper dolor ...interdum</p>
+                          <p  (dblclick)="change($event)" class="single_cat_left_content_meta">by <span>John Doe</span> |
+                            29 comments</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="right_coloum floatright">
+                      <div class="single_right_coloum">
+                        <h2 class="title" (dblclick)="change($event)">from the desk</h2>
+                        <ul>
+                          <li>
+                            <div class="single_cat_right_content">
+                              <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit
+                              </h3>
+                              <p class="fs-6 fw-light" (dblclick)="change($event)">Nulla quis lorem neque, mattis
+                                venen atis lectus. In interdum ull amcorper dolor eu
+                                mattis.</p>
+                              <p class="single_cat_right_content_meta"><a><span>read
+                                    more</span></a> 3 hours ago</p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="single_cat_right_content">
+                              <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit
+                              </h3>
+                              <p class="fs-6 fw-light" (dblclick)="change($event)">Nulla quis lorem neque, mattis
+                                venen atis lectus. In interdum ull amcorper dolor eu
+                                mattis.</p>
+                              <p class="single_cat_right_content_meta"><a><span (dblclick)="change($event)">read
+                                    more</span></a> 3 hours ago</p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="single_cat_right_content">
+                              <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit
+                              </h3>
+                              <p class="fs-6 fw-light" (dblclick)="change($event)">Nulla quis lorem neque, mattis
+                                venen atis lectus. In interdum ull amcorper dolor eu
+                                mattis.</p>
+                              <p class="single_cat_right_content_meta" (dblclick)="change($event)"><a><span>read
+                                    more</span></a> 3 hours ago</p>
+                            </div>
+                          </li>
+                        </ul>
+                        <a class="popular_more text-white" (dblclick)="change($event)">more</a>
+                      </div>
+                      <div class="single_right_coloum">
+                        <h2 class="title" (dblclick)="change($event)">editorial</h2>
+                        <div class="single_cat_right_content editorial"> <img
+                            src="../../assets/assetsNewsReporter/images/editorial_img.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet con se cte tur adipiscing elit</h3>
+                        </div>
+                        <div class="single_cat_right_content editorial"> <img
+                            src="../../assets/assetsNewsReporter/images/editorial_img.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet con se cte tur adipiscing elit</h3>
+                        </div>
+                        <div class="single_cat_right_content editorial"> <img
+                            src="../../assets/assetsNewsReporter/images/editorial_img.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet con se cte tur adipiscing elit</h3>
+                        </div>
+                        <div class="single_cat_right_content editorial"> <img
+                            src="../../assets/assetsNewsReporter/images/editorial_img.png" alt="" />
+                          <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet con se cte tur adipiscing elit</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sidebar floatright">
+                    <div class="single_sidebar"> <img src="../../assets/assetsNewsReporter/images/add1.png" alt="" />
+                    </div>
+                    <div class="single_sidebar">
+                      <div class="news-letter">
+                        <h2 (dblclick)="change($event)">Sign Up for Newsletter</h2>
+                        <p class="fs-6 fw-light" (dblclick)="change($event)">Sign up to receive our free newsletters!</p>
+                        <form action="#" method="post">
+                          <input type="text" value="Name" id="name" />
+                          <input type="text" value="Email Address" id="email" />
+                          <input type="submit" value="SUBMIT" id="form-submit" />
+                        </form>
+                        <p class="news-letter-privacy" (dblclick)="change($event)">We do not spam. We value your privacy!
+                        </p>
+                      </div>
+                    </div>
+                    <div class="single_sidebar">
+                      <div class="popular">
+                        <h2 class="title" (dblclick)="change($event)">Popular</h2>
+                        <ul>
+                          <li>
+                            <div class="single_popular">
+                              <p class="fs-6 fw-light" (dblclick)="change($event)">Sept 24th 2045</p>
+                              <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit
+                                <a class="readmore text-danger" (dblclick)="change($event)">Read More</a>
+                              </h3>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="single_popular">
+                              <p class="fs-6 fw-light" (dblclick)="change($event)">Sept 24th 2045</p>
+                              <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit
+                                <a class="readmore text-danger" (dblclick)="change($event)">Read More</a>
+                              </h3>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="single_popular">
+                              <p class="fs-6 fw-light" (dblclick)="change($event)">Sept 24th 2045</p>
+                              <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit
+                                <a class="readmore text-danger" (dblclick)="change($event)">Read More</a>
+                              </h3>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="single_popular">
+                              <p class="fs-6 fw-light" (dblclick)="change($event)">Sept 24th 2045</p>
+                              <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit
+                                <a class="readmore text-danger" (dblclick)="change($event)">Read More</a>
+                              </h3>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="single_popular">
+                              <p class="fs-6 fw-light" (dblclick)="change($event)">Sept 24th 2045</p>
+                              <h3 (dblclick)="change($event)">Lorem ipsum dolor sit amet conse ctetur adipiscing elit
+                                <a class="readmore text-danger" (dblclick)="change($event)">Read More</a>
+                              </h3>
+                            </div>
+                          </li>
+                        </ul>
+                        <a class="popular_more text-white" (dblclick)="change($event)">more</a>
+                      </div>
+                    </div>
+                    <div class="single_sidebar"> <img src="../../assets/assetsNewsReporter/images/add1.png" alt="" />
+                    </div>
+                    <div class="single_sidebar">
+                      <h2 class="title" (dblclick)="change($event)" (dblclick)="change($event)">ADD</h2>
+                      <img src="../../assets/assetsNewsReporter/images/add2.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="footer_top_area">
+                  <div class="inner_footer_top"> <img src="../../assets/assetsNewsReporter/images/add3.png" alt="" />
+                  </div>
+                </div>
+                <div class="footer_bottom_area">
+                  <div class="footer_menu">
+                    <ul id="f_menu">
+                      <li><a (dblclick)="change($event)">world news</a></li>
+                      <li><a (dblclick)="change($event)">sports</a></li>
+                      <li><a (dblclick)="change($event)">tech</a></li>
+                      <li><a (dblclick)="change($event)">business</a></li>
+                      <li><a (dblclick)="change($event)">Movies</a></li>
+                      <li><a (dblclick)="change($event)">culture</a></li>
+
+                    </ul>
+                  </div>
+                  <div class="copyright_text">
+                    <p class="fs-6 fw-light" >Copyright &copy; 2045 The News Reporter Inc. All rights
+                      reserved </p>
+                    <p class="fs-6 fw-light">Trade marks and images used in the design are the
+                      copyright of their respective owners and are used for demo purposes only.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript" src="../../assets/assetsNewsReporter/assets/js/jquery-min.js"></script>
+            <script type="text/javascript" src="../../assets/assetsNewsReporter/assets/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="../../assets/assetsNewsReporter/assets/js/jquery.bxslider.js"></script>
+            <script type="text/javascript" src="../../assets/assetsNewsReporter/assets/js/selectnav.min.js"></script>
+            <script type="text/javascript">
+              selectnav('nav', {
+                label: '-Navigation-',
+                nested: true,
+                indent: '-'
+              });
+              selectnav('f_menu', {
+                label: '-Navigation-',
+                nested: true,
+                indent: '-'
+              });
+              $('.bxslider').bxSlider({
+                mode: 'fade',
+                captions: true
+              });
+            </script>
+          </section>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

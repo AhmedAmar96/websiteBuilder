@@ -1,0 +1,139 @@
+<section class="container-fluid row pt-10">
+
+    <div class="col-md-6 mx-auto d-flex align-items-stretch">
+        <img src="../../assets/image/arranging-files.svg" class="my-4">
+    </div>
+
+    <div class="col-md-6 ms-auto">
+
+        <form [formGroup]=registForm (ngSubmit)=regSubmit(registForm) class="mx-auto my-5">
+
+            <h1 class="text-center fw-bold my-3">Sign Up</h1>
+
+            <div class="row">
+
+                <div class="col-md-6 mt-4 me-auto form-group">
+                    <div class="form-floating">
+                        <input type="text" formControlName="first_name" id="firstName"
+                            [ngClass]="{'form-control': true, 'is-invalid': (registForm.get('first_name')?.errors != null && registForm.get('first_name')?.touched), 'is-valid': !(registForm.get('first_name')?.errors != null)}"
+                            placeholder="First Name">
+                        <label for="firstName">First Name</label>
+                    </div>
+                    <div class="text-danger my-2 ps-2"
+                        *ngIf="registForm.get('first_name')?.errors != null && registForm.get('first_name')?.touched">
+                        <p *ngIf="registForm.get('first_name')?.errors?.required">First Name Required</p>
+                        <p *ngIf="registForm.get('first_name')?.errors?.minlength">First Name min length 3</p>
+                        <p *ngIf="registForm.get('first_name')?.errors?.maxlength">First Name max length 8</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-4 ms-auto form-group">
+                    <div class="form-floating">
+                        <input type="text" formControlName="last_name" id="lastName"
+                            [ngClass]="{'form-control': true, 'is-invalid': (registForm.get('last_name')?.errors != null && registForm.get('last_name')?.touched), 'is-valid': !(registForm.get('last_name')?.errors != null)}"
+                            placeholder="Last Name">
+                        <label for="lastName">Last Name</label>
+                    </div>
+                    <div class="text-danger my-2 ps-2"
+                        *ngIf="registForm.get('last_name')?.errors != null && registForm.get('last_name')?.touched">
+                        <p *ngIf="registForm.get('last_name')?.errors?.required">Last Name Required</p>
+                        <p *ngIf="registForm.get('last_name')?.errors?.minlength">Last Name min length 3</p>
+                        <p *ngIf="registForm.get('last_name')?.errors?.maxlength">Last Name max length 8</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-4 me-auto form-group">
+                <div class="form-floating">
+                    <input type="email" formControlName="email" id="email"
+                        [ngClass]="{'form-control': true, 'is-invalid': registForm.get('email')?.errors != null && registForm.get('email')?.touched, 'is-valid': !(registForm.get('email')?.errors != null)}"
+                        placeholder="Email">
+                    <label for="email">Email</label>
+                </div>
+                <div class="text-danger my-2 ps-2" *ngIf="errors">{{errors}}</div>
+                <div class="text-danger my-2 ps-2"
+                    *ngIf="registForm.get('email')?.errors != null && registForm.get('email')?.touched">
+                    <p *ngIf="registForm.get('email')?.errors?.required">Email Required</p>
+                    <p *ngIf="registForm.get('email')?.errors?.email">Email Invalid</p>
+                </div>
+            </div>
+
+            <div class="my-4 me-auto form-group">
+                <div class="form-floating">
+                    <input type="number" formControlName="age" id="age" [ngClass]="{'form-control': true, 'is-invalid': registForm.get('age')?.errors != null && registForm.get('age')?.touched, 'is-valid': !(registForm.get('age')?.errors != null)}" placeholder="Age">
+                    <label for="age">Age</label>
+                </div>
+                <div class="text-danger my-2 ps-2"
+                    *ngIf="registForm.get('age')?.errors != null && registForm.get('age')?.touched">
+                    <p *ngIf="registForm.get('age')?.errors?.required">Age Required</p>
+                    <p *ngIf="registForm.get('age')?.errors?.min || registForm.get('age')?.errors?.max">Age should range from 12 to 90</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4 me-auto form-group">
+
+                    <div class="input-group mb-3 form-floating">
+                        <input type="password" formControlName="password" id="pass" class="form-control ps-4"
+                            placeholder="Password" [(ngModel)]="passVal">
+                        <span id="reg_pass_eye" class="input-group-text"><i id="reg_eye" class="far fa-eye-slash"></i></span>
+                        <label for="pass">Password</label>
+                    </div>
+
+                    <div class="text-danger my-2 ps-2"
+                        *ngIf="registForm.get('password')?.errors != null && registForm.get('password')?.touched">
+                        <p *ngIf="registForm.get('password')?.errors?.required">Password Required</p>
+                        <p *ngIf="registForm.get('password')?.errors?.pattern">Password must be at least 8 characters.
+                            At least 1 character, 1 capital letter and 1 digit</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 ms-auto form-group">
+                    <div class="form-floating input-group">
+                        <input type="password" formControlName="re_password" id="re_pass" class="form-control ps-4"
+                            placeholder="Repeat Password" [(ngModel)]="rePassVal">
+                        <label for="re_pass">Repeat Password</label>
+                    </div>
+
+                    <!-- <div class="text-danger my-2 ps-2"
+                        *ngIf="registForm.get('re_password')?.errors != null && registForm.get('re_password')?.touched">
+                        <p *ngIf="registForm.get('re_password')?.errors?.required">Confirm password Required</p>
+                    </div> -->
+                    <div class="text-danger my-2 ps-2" *ngIf="!isConfirm && (registForm.get('re_password')?.touched)">
+                        The password you entered does not match</div>
+                </div>
+            </div>
+
+            <input type="checkbox" formControlName="checkbox" id="checkbox"><label class="ms-2">I agree to the terms of
+                user</label>
+
+
+            <div class="row my-5">
+                <div class="col-md-7 mb-4">
+                    <button type="submit" [disabled]=registForm.invalid||!registForm.value.checkbox||!isConfirm
+                        [ngClass]="{'btn btn-info text-white w-75 rounded-pill fs-4' : true, 'btn-outline-info':!(registForm.invalid||!registForm.value.checkbox||!isConfirm)}">Sign
+                        Up</button>
+                </div>
+                <div class="col-md-5">
+                    <a href="#/login" class="text-info btn fs-4 text-decoration-none">Sign in <span class="fs-5"><i
+                                class="fas fa-long-arrow-alt-right"></i></span></a>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
+</section>
+
+
+<section id="loading" class="d-flex justify-content-center align-items-center" *ngIf="isClick">
+
+    <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+    </div>
+</section>
